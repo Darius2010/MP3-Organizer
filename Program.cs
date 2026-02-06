@@ -1,4 +1,5 @@
 ﻿using System;
+using TagLib;
 
 namespace MP3_Sortierung
 {
@@ -6,7 +7,10 @@ namespace MP3_Sortierung
     {
         public static string[] GetFiles(string path)
         {
-            return System.IO.Directory.GetFiles(path);
+            string SuchFilter = "*.mp3";
+            var SuchTiefe = SearchOption.AllDirectories;
+
+            return System.IO.Directory.GetFiles(path, SuchFilter, SuchTiefe);
         }
         static void Main(string[] args)
         {
